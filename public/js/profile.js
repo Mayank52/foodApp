@@ -44,7 +44,7 @@ saveDetails.addEventListener("click", async () => {
       // "contact":profileInput[3].value
     };
     console.log("Update:", updateObj);
-    let obj = await axios.patch("http://localhost:3000/api/user", {
+    let obj = await axios.patch("https://foodzoned-app.herokuapp.com/api/user", {
       updateObj,
     });
     console.log("Updated obj: ", obj);

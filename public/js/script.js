@@ -1,4 +1,3 @@
-  
 let names = ["EVERYONE" , "DEVELOPERS" , "FITNESS FREAKS" , "VEGANS"];            
 
 let changingText = document.querySelector("#changing-text");
