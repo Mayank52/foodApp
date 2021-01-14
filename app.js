@@ -10,7 +10,6 @@ const cookieParser = require("cookie-parser");
 app.use( express.json());
 app.use(cookieParser());
 
-
 app.use(express.static(__dirname+"/public"));
 // app.httpMethod( appRoute , cb function( request , response))
 
