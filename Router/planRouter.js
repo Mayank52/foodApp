@@ -11,16 +11,10 @@ const {
   deletePlanById,
 } = require("../Controller/planController");
 
-
-
-
-
-
 planRouter
 .route("")
 .get( protectRoute , getAllPlans)
 .post(createPlan);
-
 
 planRouter
   .route("/:id")

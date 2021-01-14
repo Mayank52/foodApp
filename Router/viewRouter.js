@@ -2,9 +2,7 @@ const express = require("express");
 const { isLoggedIn , logout } = require("../Controller/authController");
 const { getHomePage, getLoginPage, getSignUpPage, getPlansPage , getResetPasswordPage  , getProfilePage} = require("../Controller/viewController");
 
-
 const viewRouter = express.Router();
-
 
 viewRouter.use(isLoggedIn);
 // next() => logged in => req.name = "steve"

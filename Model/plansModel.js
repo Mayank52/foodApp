@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-const { DB_LINK } = require("../config/secrets");
 
+const DB_LINK = process.env.DB_LINK;
 
 mongoose
   .connect(
