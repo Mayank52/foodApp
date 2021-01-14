@@ -7,6 +7,7 @@ let signupBtn = document.querySelector(".signupBtn");
 signupBtn.addEventListener("click", async function (e) {
   try {
     e.preventDefault();
+    console.log("Btn pressed");
     if (username.value && email.value && pw.value && cpw.value) {
       let signupObject = {
         name: username.value,

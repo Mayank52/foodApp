@@ -14,8 +14,6 @@ function getAllUsers(req, res) {
     });
   }
 }
-
-//SignUp function creates user => this function is not used
 function createUser(req, res) {
   let user = req.body;
   user.id = uuidv4();
@@ -76,7 +74,7 @@ async function deleteUserById(req, res) {
     let deletedUser =await userModel.findByIdAndDelete(id);
     if(deletedUser){
       res.status(200).json({
-        message:"User deleted Succesfully !!",
+        message:"User deleted Succesfulyy !!",
         data : deletedUser
       })
     }
@@ -94,8 +92,33 @@ async function deleteUserById(req, res) {
   }
 }
 
+
+async function updateProfilePhoto(req , res){
+  try{
+    let file = req.file;
+    console.log(file);
+    let imagePath = file.destination+"/"+file.filename;
+    imagePath = imagePath.substring(6);
+    
+    let id = req.id;
+    let user = await userModel.findById(id);
+    user.pImage = imagePath;
+    await user.save({validateBeforeSave:false}); 
+    res.json({
+      message:"Profile Photo updated !!"
+    })
+  }
+  catch(error){
+    res.status(200).json({
+      message:"Failed to update photo !!",
+      error
+    })
+  }
+}
+
 module.exports.getAllUsers = getAllUsers;
 module.exports.createUser = createUser;
 module.exports.getUserById = getUserById;
 module.exports.updateUserById = updateUserById;
 module.exports.deleteUserById = deleteUserById;
+module.exports.updateProfilePhoto = updateProfilePhoto;

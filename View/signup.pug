@@ -1,19 +1,46 @@
 extends base.pug
+append stylesheets
+  link(rel='stylesheet' href='../css/signup.css')
 block content
- form
-  .entry
-    .entry-text Name
-    input#name(type='text' name='Name' required='')
-  .entry
-    .entry-text Email
-    input#email(type='email' name='Email' required='')
-  .entry
-    .entry-text Password
-    input#pw(type='password' name='password')
-  .entry
-    .entry-text Confirm Password
-    input#cpw(type='password' name='confirm-password')  
-  .btn-parent
-    button.btn.btn-full.form-button.signupBtn Sign Up
+  .overall-container
+    .parent-container
+      .greetings-div
+        h1 Hello Friend!
+        button.btn-fade
+          a(href='/login') Sign In
+      .form-div
+        .signup-form
+          .form-header
+            .form-heading Create Account
+          .form-body
+            form
+              .form-input
+                .icon
+                  i.far.fa-user
+                input#name(type='text' placeholder='Name' required='')
+              .form-input
+                .icon
+                  i.far.fa-envelope
+                input#email(type='email' placeholder='Email' required='')
+              .form-input
+                .icon
+                  i.fas.fa-lock
+                input#pw(type='password' placeholder='Password')
+              .form-input
+                .icon
+                  i.fas.fa-lock
+                input#cpw(type='password' placeholder='Confirm Password')
+              .form-btn
+                button.btn.signupBtn Sign Up
+            .strike
+              span Or Sign Up with
+            .signin-socials
+              .social
+                i.fab.fa-facebook
+              .social
+                i.fab.fa-google-plus-g
+              .social
+                i.fab.fa-linkedin
+
 block scripts
  script(src="./js/signup.js") 

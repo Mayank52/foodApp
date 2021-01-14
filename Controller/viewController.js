@@ -1,14 +1,23 @@
 const planModel = require("../Model/plansModel");
 
+async function getHomePage(req, res) {
+  try{
+    let plans = await planModel.find(); 
+    plans = plans.splice(0 , 3);
+    res.render("homepage.pug" , {name:req.name , plans});
+  }
+  catch(error){
+    console.log(error);
+  }
+}
 
-// function getDemoPage(req, res) {
-//   // send demo page to client
-//   // res.render("demo.pug" , {title:"Demo Page" , content:"I am coming from object"});
-//   res.render("base.pug");
-// }
+function getProfilePage(req ,res){
+  // console.log(req.user);
+  res.render("profilePage.pug" , {user : req.user, name: req.name});
+}
 
-function getHomePage(req, res) {
-  res.render("homepage.pug" , {name:req.name});
+function getResetPasswordPage(req , res){
+  res.render("resetPassword.pug" , {name:req.name});
 }
 
 function getLoginPage(req, res) {
@@ -34,3 +43,5 @@ module.exports.getHomePage = getHomePage;
 module.exports.getLoginPage = getLoginPage;
 module.exports.getSignUpPage = getSignUpPage;
 module.exports.getPlansPage = getPlansPage;
+module.exports.getResetPasswordPage = getResetPasswordPage;
+module.exports.getProfilePage = getProfilePage;

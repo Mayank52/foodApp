@@ -26,7 +26,6 @@ let userSchema = new mongoose.Schema({
     type:String,
     minlength:[6 , "Password must be greater than 6 characters"],
     required:true
-    // select:false
   } ,
   confirmPassword:{
     type:String,
@@ -42,6 +41,10 @@ let userSchema = new mongoose.Schema({
     type:String,
     enum:["admin" , "user" , "restaurant owner" , "delivery boy"],
     default:"user"
+  },
+  pImage:{
+    type:String,
+    default:"/images/users/default.png"
   },
   pwToken:String,
   tokenTime:String
