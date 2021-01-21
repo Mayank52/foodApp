@@ -25,7 +25,7 @@ const bookedPlanSchema = new mongoose.Schema({
         required:true
     },
     bookedOn : {
-        type:String,
+        type:Date,
         default:Date.now()
     }
 })
